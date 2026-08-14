@@ -1,0 +1,311 @@
+:root {
+  --bg-cream: #EEE3D1;
+  --card-bg: #F9F6EF;
+  --card-bg-alt: #F1E4D8;
+  --card-bg-soft: #EFE9DD;
+  --navbar-dark: #201D18;
+  --accent: #9C4C2B;
+  --accent-dark: #7d3c22;
+  --olive: #6C704F;
+  --mustard: #C9A944;
+  --text-muted: #8A8574;
+  --border-soft: #B5AE9E;
+}
+
+body {
+  background-color: var(--bg-cream);
+  font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #201D18;
+}
+
+/* ---------- Navbar ---------- */
+.navbar-restaurante {
+  background-color: var(--navbar-dark);
+  border-radius: 14px;
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 32px;
+}
+
+.navbar-brand-custom {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+}
+
+.navbar-logo-circle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--mustard), var(--accent));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #201D18;
+}
+
+.navbar-brand-text .titulo {
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.1;
+}
+.navbar-brand-text .subtitulo {
+  font-size: 0.65rem;
+  color: var(--border-soft);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.navbar-tabs-custom {
+  display: flex;
+  gap: 6px;
+}
+
+.navbar-tabs-custom button {
+  background: transparent;
+  border: none;
+  color: #cfc9bd;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: 0.15s;
+}
+
+.navbar-tabs-custom button.active {
+  background-color: var(--accent);
+  color: #fff;
+}
+
+.badge-admin {
+  background-color: var(--olive);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 999px;
+  letter-spacing: 0.05em;
+}
+
+/* ---------- Section header ---------- */
+.section-eyebrow {
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.section-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #201D18;
+  padding-bottom: 16px;
+  margin-bottom: 28px;
+}
+
+.section-title-row h1 {
+  font-weight: 800;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.btn-accent {
+  background-color: var(--accent);
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+.btn-accent:hover {
+  background-color: var(--accent-dark);
+  color: #fff;
+}
+
+/* ---------- Plato card (línea punteada decorativa) ---------- */
+.plato-card {
+  background-color: var(--card-bg);
+  border: 2px dashed #D8CBAE;
+  border-radius: 16px;
+  padding: 20px;
+  height: 100%;
+  position: relative;
+}
+
+.plato-card .icono-plato {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #201D18;
+  margin-bottom: 14px;
+}
+
+.plato-card .id-plato {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.plato-card .precio {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin: 6px 0 14px;
+}
+
+.add-plato-card {
+  background: transparent;
+  border: 2px dashed var(--border-soft);
+  border-radius: 16px;
+  height: 100%;
+  min-height: 190px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-weight: 600;
+}
+.add-plato-card:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.add-plato-card .signo-mas {
+  font-size: 1.8rem;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+/* ---------- Botones tipo icon-btn ---------- */
+.icon-btn {
+  background-color: var(--card-bg-soft);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #201D18;
+}
+.icon-btn.danger {
+  background-color: #F1DCD3;
+  color: var(--accent-dark);
+}
+
+/* ---------- Tabla clientes ---------- */
+.table-cantina thead {
+  background-color: var(--navbar-dark);
+  color: #fff;
+}
+.table-cantina thead th {
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 700;
+  border: none;
+  padding: 14px 16px;
+}
+.table-cantina tbody td {
+  padding: 16px;
+  background-color: var(--card-bg);
+  border-bottom: 1px solid var(--card-bg-alt);
+  vertical-align: middle;
+}
+.table-cantina tbody tr:first-child td {
+  border-top: none;
+}
+
+.avatar-cliente {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--mustard);
+  color: #201D18;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  font-size: 0.85rem;
+}
+
+/* ---------- Panel de pedidos ---------- */
+.panel-pedido {
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  padding: 22px;
+}
+
+.qty-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--card-bg-soft);
+  border-radius: 8px;
+  padding: 4px 10px;
+}
+.qty-box button {
+  background: transparent;
+  border: none;
+  font-weight: 700;
+  font-size: 1rem;
+  width: 22px;
+}
+
+.line-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--card-bg-alt);
+}
+
+.order-history-item {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--card-bg-alt);
+}
+.order-history-item:last-child {
+  border-bottom: none;
+}
+
+.status-tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.status-tag.listo {
+  background-color: var(--olive);
+  color: #fff;
+}
+.status-tag.en-cocina {
+  background-color: var(--mustard);
+  color: #201D18;
+}
+.status-tag.pendiente {
+  background-color: var(--accent);
+  color: #fff;
+}
+
+.total-pedido {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 14px;
+  margin-top: 8px;
+  border-top: 2px solid #201D18;
+  font-weight: 700;
+}
+.total-pedido .monto {
+  color: var(--accent);
+  font-size: 1.3rem;
+}
