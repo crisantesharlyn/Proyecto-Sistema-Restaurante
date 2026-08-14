@@ -1,5 +1,5 @@
 from config.base_datos import obtener_conexion
-from backend.models.cliente import Cliente
+from models.cliente import Cliente
 from dao.historial_dao import HistorialDAO
 
 

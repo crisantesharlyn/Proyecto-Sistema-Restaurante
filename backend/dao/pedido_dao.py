@@ -1,5 +1,5 @@
 from config.base_datos import obtener_conexion
-from modelos.pedido import Pedido
+from models.pedido import Pedido
 from dao.historial_dao import HistorialDAO
 
 

@@ -1,8 +1,8 @@
 from fastapi import APIRouter, HTTPException
 from dao.plato_dao import PlatoDAO
-from modelos.plato import Plato
+from models.plato import Plato
 from schemas.plato_schema import PlatoCrear, PlatoActualizar, PlatoRespuesta
-
+   
 router = APIRouter(prefix="/platos", tags=["Platos"])
 dao = PlatoDAO()
 

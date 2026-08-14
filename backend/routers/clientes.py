@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from dao.cliente_dao import ClienteDAO
-from modelos.cliente import Cliente
+from models.cliente import Cliente
 from schemas.cliente_schema import ClienteCrear, ClienteActualizar, ClienteRespuesta
 
 router = APIRouter(prefix="/clientes", tags=["Clientes"])

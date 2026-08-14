@@ -1,6 +1,6 @@
 from datetime import datetime
 from config.base_datos import obtener_conexion
-from modelos.historial import Historial
+from models.historial import Historial
 
 
 class HistorialDAO:

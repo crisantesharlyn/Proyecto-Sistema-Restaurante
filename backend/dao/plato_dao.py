@@ -1,5 +1,5 @@
 from config.base_datos import obtener_conexion
-from modelos.plato import Plato
+from models.plato import Plato
 from dao.historial_dao import HistorialDAO
 
 
