@@ -28,5 +28,8 @@ def actualizar_cliente(id_cliente: int, datos: ClienteActualizar):
 
 @router.delete("/{id_cliente}")
 def eliminar_cliente(id_cliente: int):
-    dao.eliminar(id_cliente)
+    try:
+        dao.eliminar(id_cliente)
+    except ValueError as ex:
+        raise HTTPException(status_code=409, detail=str(ex))
     return {"mensaje": "Cliente eliminado"}

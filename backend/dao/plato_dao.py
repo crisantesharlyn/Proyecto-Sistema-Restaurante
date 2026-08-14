@@ -1,7 +1,7 @@
 from config.base_datos import obtener_conexion
 from models.plato import Plato
 from dao.historial_dao import HistorialDAO
-
+import psycopg2
 
 class PlatoDAO:
     def __init__(self):
@@ -62,7 +62,12 @@ class PlatoDAO:
         nombre = actual.nombre if actual else f"ID={id_plato}"
         conn = obtener_conexion()
         cur = conn.cursor()
-        cur.execute("DELETE FROM plato WHERE id_plato = %s;", (id_plato,))
-        conn.commit()
-        conn.close()
+        try:
+            cur.execute("DELETE FROM plato WHERE id_plato = %s;", (id_plato,))
+            conn.commit()
+        except psycopg2.errors.ForeignKeyViolation:
+            conn.rollback()
+            raise ValueError(f"No se puede eliminar '{nombre}': tiene pedidos asociados.")
+        finally:
+            conn.close()
         self.__hdao.registrar(f"Plato eliminado: {nombre} (ID={id_plato})")

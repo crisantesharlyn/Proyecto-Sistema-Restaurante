@@ -28,5 +28,8 @@ def actualizar_plato(id_plato: int, datos: PlatoActualizar):
 
 @router.delete("/{id_plato}")
 def eliminar_plato(id_plato: int):
-    dao.eliminar(id_plato)
+    try:
+        dao.eliminar(id_plato)
+    except ValueError as ex:
+        raise HTTPException(status_code=409, detail=str(ex))
     return {"mensaje": "Plato eliminado"}

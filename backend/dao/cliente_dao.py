@@ -1,7 +1,7 @@
 from config.base_datos import obtener_conexion
 from models.cliente import Cliente
 from dao.historial_dao import HistorialDAO
-
+import psycopg2
 
 class ClienteDAO:
     def __init__(self):
@@ -59,7 +59,12 @@ class ClienteDAO:
         nombre = actual.nombre if actual else f"ID={id_cliente}"
         conn = obtener_conexion()
         cur = conn.cursor()
-        cur.execute("DELETE FROM cliente WHERE id_cliente = %s;", (id_cliente,))
-        conn.commit()
-        conn.close()
+        try:
+            cur.execute("DELETE FROM cliente WHERE id_cliente = %s;", (id_cliente,))
+            conn.commit()
+        except psycopg2.errors.ForeignKeyViolation:
+            conn.rollback()
+            raise ValueError(f"No se puede eliminar '{nombre}': tiene pedidos asociados.")
+        finally:
+            conn.close()
         self.__hdao.registrar(f"Cliente eliminado: {nombre} (ID={id_cliente})")
